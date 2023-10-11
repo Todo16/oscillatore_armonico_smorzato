@@ -4,6 +4,7 @@ float k = 10.0; // Costante elastica in N/m
 float x = 1.0;  // Posizione iniziale
 float v = 0.0;  // Velocità iniziale
 float dt = 0.1; // Passo di integrazione in secondi
+float a = 0;
 
 void setup() {
 
@@ -12,9 +13,9 @@ void setup() {
 }
 
 void loop() {
-  float a = (-b * v - k * x) / m; // Calcola l'accelerazione usando l'equazione differenziale
-  v = v + a * dt; // Aggiorna la velocità usando l'integrazione di Eulero
-  x = x + v * dt; // Aggiorna la posizione usando l'integrazione di Eulero
+  a = (-b * v - k * x) / m; // Calcola l'accelerazione usando l'equazione differenziale
+  v += a * dt; // Aggiorna la velocità usando l'integrazione di Eulero
+  x += v * dt; // Aggiorna la posizione usando l'integrazione di Eulero
   Serial.print("posizione:");
   Serial.print(x);
   Serial.print(",");
